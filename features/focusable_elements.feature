@@ -1,4 +1,4 @@
-Feature: Focusable elements
+Feature: Focusable elements (#20)
 
   It should be possible to use something other than a mouse (e.g. keyboard, switch) to
   navigate around a page.
@@ -17,6 +17,8 @@ Feature: Focusable elements
   - why is it bad for anchors to not have an href?
   - how do we check the rule about inactive elements not being focussable? It's OK
     to make inactive elements focusable with tabindex (we think!).
+  - W3C lists more active elements (calls them "interactive elements") - can we merge this idea
+    into our standard?
 
   Scenario: Default active element cannot be focussed because of negative tabindex
     Given a page with this HTML:
@@ -47,7 +49,7 @@ Feature: Focusable elements
     Given a page with this HTML:
       """
       <a class="carousel-item" href="/casualty">Casualty</a>
-      <span class="carousel-item" onclick="window.location='/strictly'>Strictly Come Dancing</span>
+      <span class="carousel-item" onclick="window.location='/strictly'">Strictly Come Dancing</span>
       """
     And I have configured the following active elements for the page:
       | .carousel-item |
