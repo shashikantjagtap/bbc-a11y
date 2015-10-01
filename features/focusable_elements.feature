@@ -14,6 +14,9 @@ Feature: Focusable elements
   Questions:
 
   - what exactly counts as an active element? What about buttons?
+  - why is it bad for anchors to not have an href?
+  - how do we check the rule about inactive elements not being focussable? It's OK
+    to make inactive elements focusable with tabindex (we think!).
 
   Scenario: Default active element cannot be focussed because of negative tabindex
     Given a page with this HTML:
@@ -32,16 +35,7 @@ Feature: Focusable elements
   Then I see the warnings:
     | Unable to focus on link 'a': missing href |
 
-  Scenario: Inactive element that's been made active
-    Given a page with this HTML:
-      """
-      <p tabindex="1">News</p>
-      """
-    When I run the tool
-    Then I see the warnings:
-      | Should not be able to focus on inactive element 'p' |
-
-  Scenario: Disabled element that would normally be active
+  Scenario: Default active element becomes inactive when disabled
     Given a page with this HTML:
       """
       <input type="submit" disabled>Go</input>
@@ -53,10 +47,10 @@ Feature: Focusable elements
     Given a page with this HTML:
       """
       <a class="carousel-item" href="/casualty">Casualty</a>
-      <span class="carousel-item" onlick="window.location='/strictly'>Strictly Come Dancing</span>
+      <span class="carousel-item" onclick="window.location='/strictly'>Strictly Come Dancing</span>
       """
     And I have configured the following active elements for the page:
-      | carousel-item |
+      | .carousel-item |
     When I run the tool
     Then I see the failure "Unable to focus on element 'carousel-item:nth-item(1)'"
 
