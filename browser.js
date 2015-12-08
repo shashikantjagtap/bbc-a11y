@@ -6,14 +6,20 @@ window.a11y = function() {
   var linter = new Linter(page);
   linter.run(function(lintResult) {
     console.log("a11y lint result:");
-    lintResult.errors.map(function(e) {
-      var elements = xpathElementsIn(e);
-      if (elements.length == 0) {
-        console.error(e);
-      } else {
-        console.error(e, elements[0]);
-      }
-    });
+    if (lintResult.errors.length == 0) {
+      console.log("PASS: All a11y standards");
+    }
+    else {
+      console.log("FAIL: " + lintResult.errors.length + " errors:");
+      lintResult.errors.map(function(e) {
+        var elements = xpathElementsIn(e);
+        if (elements.length == 0) {
+          console.error(e);
+        } else {
+          console.error(e, elements[0]);
+        }
+      });
+    }
   });
 }
 
