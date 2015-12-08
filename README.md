@@ -70,7 +70,7 @@ Try this in your console:
 window.$x = $x;
 var script = document.createElement('script');
 script.type = 'text/javascript';
-script.src = "https://rawgit.com/cucumber-ltd/bbc-a11y/39699593f09396d93b7b60096904a351efd807f1/a11y.browser.js";
+script.src = "https://rawgit.com/cucumber-ltd/bbc-a11y/javascript/a11y.browser.js";
 script.onload = function() {
   a11y();
 }
