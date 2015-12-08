@@ -60,3 +60,19 @@ Once you're configured, you can run the tests using the `a11y` command, from the
 
 This will pick up your `a11y.rb` configuration file and run the a11y checks on each page specified in your configuration.
 Output is printed to the console.
+
+
+## Browser
+
+Try this in your console:
+
+```JavaScript
+window.$x = $x;
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = "https://rawgit.com/cucumber-ltd/bbc-a11y/39699593f09396d93b7b60096904a351efd807f1/a11y.browser.js";
+script.onload = function() {
+  a11y();
+}
+document.body.appendChild(script);
+```
