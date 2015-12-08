@@ -7,7 +7,8 @@
     "example": "examples"
   },
   "scripts": {
-    "cucumber": "cucumber.js features/check_standards -r features/step_definitions"
+    "cucumber": "cucumber.js features/check_standards -r features/step_definitions",
+    "browserify": "browserify browser.js -o a11y.browser.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/cucumber-ltd/bbc-a11y#readme",
   "devDependencies": {
+    "browserify": "^12.0.1",
     "chai": "^3.4.0",
     "cucumber": "^0.8.1"
   },

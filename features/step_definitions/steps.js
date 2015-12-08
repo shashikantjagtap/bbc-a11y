@@ -1,16 +1,8 @@
 var Linter = require('../../lib/bbc/a11y/linter');
 var Standards = require('../../lib/bbc/a11y/standards');
+var HtmlPage = require('../../lib/bbc/a11y/html_page');
 
 var expect = require('chai').expect;
-var cheerio = require('cheerio');
-
-function HtmlPage(html) {
-  this.dom = cheerio.load(html);
-}
-
-HtmlPage.prototype.all = function(selector) {
-  return this.dom(selector);
-}
 
 module.exports = function() {
 
