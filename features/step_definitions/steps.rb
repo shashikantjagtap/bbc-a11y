@@ -28,7 +28,7 @@ When(/^I validate the (.+) standards$/) do |pattern|
 end
 
 Then(/^it passes$/) do
-  expect(@result).to be_passed
+  expect(@lint_result).to be_passed
 end
 
 Then(/^it fails with the message:$/) do |message|

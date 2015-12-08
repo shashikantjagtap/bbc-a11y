@@ -4,3 +4,4 @@ pkg
 tags
 .a11y.rb
 .DS_Store
+node_modules
